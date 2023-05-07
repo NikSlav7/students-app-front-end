@@ -1,0 +1,35 @@
+.graph-element-container{
+    font-size: 50%;
+    font-size: 90%;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    vertical-align: baseline;
+    display: inline;
+    inline-size: min-content;
+    min-height: min-content;
+    user-select: none;
+    white-space: nowrap;
+}
+.graph-element-container:hover{
+    cursor: pointer;
+}
+.graph-element-container-hidden{
+    color: gray;
+    opacity: 0.7;
+}
+.graph-element-container p{
+    margin-left: 1vw;
+    font-size: 0.7em;
+}
+.graph-element-container p::before {
+    content: "";
+    display: inline-block;
+    height: 10px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: var(--circle-color);
+    margin-right: 10px;
+  }
+*{
+    font-family: var(--main-font);
+}

@@ -1,0 +1,73 @@
+
+.lesson-choose-container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    column-gap: 1%;
+    margin-left: -1vh;
+    height: 80%;
+}
+.lesson-choose-container:hover{
+    cursor: pointer;
+}
+.lesson-choose-comment-container{
+    height: 12%;
+    width: 100%;
+    text-align: start;
+    min-height: min-content;
+    min-width: min-content;
+}
+.lesson-choose-comment{
+    min-height: min-content;
+    min-width: min-content;
+}
+
+.lesson-choose-element-container{
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+}
+.lesson-choose-element-name{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    margin: 0;
+    font-size: 1.2em;
+}
+.lesson-choose-element-value{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    margin: 0;
+    font-size: 1.6em;
+    font-weight: 600;
+
+}
+.lesson-choose-element-value-input{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    font-size: 1.3em;
+    font-weight: 400;
+    width: 70%;
+    text-align: center;
+    box-sizing: border-box;
+    margin-left: 15%;
+    aspect-ratio: 1/1;
+}
+@media only screen and (max-width: 800px) {
+    .lesson-choose-container{
+        margin-top: 2vh;
+        margin-left: 0.3vw;
+    }
+    .lesson-choose-element-name{
+        font-size: 1em;
+        font-weight: 500;
+    }
+}

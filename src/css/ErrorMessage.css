@@ -1,0 +1,14 @@
+.error-message-container{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 10vw;
+    aspect-ratio: 5/1;
+    background-color:rgba(252, 75, 62, 0.7);
+    border-top-left-radius: 0.2vw;
+    border: solid;
+    border-color:rgba(253, 26, 9, 0.85) ;
+}
+.error-message-container p{
+    font-weight: 600;
+}

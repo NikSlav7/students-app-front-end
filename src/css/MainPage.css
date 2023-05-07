@@ -1,0 +1,211 @@
+.main-page-container{
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    overflow-x:hidden;
+    left: 0;
+}
+.absence-data-container{
+    width: 96vw;
+    border-top: solid;
+    border-top-width: 0.15vh;
+
+    border-bottom: solid;
+    border-bottom-width: 0.15vh;
+
+    margin: 5vh 0 0 2vw;
+    margin-right: 0 !important;
+    aspect-ratio: 10/1;
+    display: flex;
+    flex-direction: column;
+}
+.absence-data-title-container{
+    flex: 1;
+}
+.absence-data-title{
+    font-family: var(--main-font);
+    text-align: start;
+    padding-left: 2%;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+.add-marks-button-container{
+    width: 100%;
+    height: 5vh;
+    margin-top: 7vh;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.main-data-container{
+    width: 96vw;
+    margin: 2vh 0 0 2vw;
+    margin-right: 0 !important;
+    aspect-ratio: 10/3.5;
+    display: flex;
+    min-height: fit-content;
+    flex-direction: row;
+    
+}
+
+.graph-data-container{
+    flex: 2.5;
+    margin-left: 2vw;
+    display: flex;
+    width: 65vw;
+    height: 100%;
+    flex-direction: column;
+    min-height: fit-content;
+    overflow: auto;
+}
+.graph-container{
+    flex: 8;
+    width: 100%;
+    height: 100%;
+}
+.graph-elements{
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+}
+.edit-years-button-container{
+    width: 100%;
+    height: 2vh;
+}
+.edit-years-button{
+    width: 3.5vw;
+    height: 100%;
+    float: right;
+    overflow: hidden;
+    font-size: 0.4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    inline-size: min-content;
+    font-size: 0.6em;
+    background-color: transparent;
+    border: none;
+    transition: all 0.15s;
+}
+.edit-years-button:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+.periods-container{
+    width: 100%;
+    flex: 1;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+.graph-canvas{
+    width: 100%;
+    height: 100%;
+}
+.add-marks-button{
+    width: 8vw;
+    font-weight: 500;
+    margin-left: 2vw;
+    aspect-ratio: 7/1.5;
+    font-family: var(--main-font);
+    background-color: var(--main-color);
+    border: none;
+    transition: all 0.2s;
+    border-radius: 0.6vh;
+}
+.add-marks-button:hover{
+    transform: scale(1.01);
+    cursor: pointer;
+    filter: brightness(98%);
+}
+.edit-years-button-container{
+    width: 100%;
+    height: 100%;
+}
+body{
+    margin: 0;
+}
+
+
+.absence-calculator-container{
+    width: 30vw;
+    height: 35vw;
+    margin: 5vh 0 0 2vw;
+    margin-right: 0 !important;
+    display: flex;
+    flex-direction: column;
+}
+.absence-calculator-header-conainer{
+    flex: 0.5
+}
+.absence-calculator-header{
+    text-align: start;
+    padding-left: 5%;
+    font-size: 1.7em;
+    font-weight: 600;
+}
+
+@media only screen and (max-width: 800px) {
+    .absence-calculator-header-conainer{
+        width: 100%;
+    }
+    .absence-calculator-header{
+        width: 100%;
+        white-space: nowrap;
+        font-size: 1.2em;
+        padding-left: 0;
+        margin-left: 2vw;
+    }
+    
+    .add-marks-button{
+        width: 30vw;
+        height: 3.5vh;
+        font-size: 0.65em;
+        white-space: nowrap;
+        padding: 1%;
+        min-height: min-content;
+    }
+    .main-data-container{
+        aspect-ratio: 2/1;
+        flex-direction: column;
+        min-height: min-content;
+        min-height: min-content;
+        height: 115vh;
+        min-height: fit-content;
+        
+    }
+    .absence-data-title{
+        font-size: 1.2em;
+    }
+    .graph-data-container{
+        flex: 2;
+        width: 96%;
+        margin-top: 2vh;
+    }
+    .graph-data-container{
+        margin-left: 0;
+    }
+    .periods-container{
+        min-height: min-content;
+        height: fit-content;
+        margin-left: 4vw;
+        width: 92%;
+    }
+    .graph-container{
+        margin-top: 1vh;
+        height: fit-content;
+
+    }
+    .graph-elements{
+        margin-left: 4vw;
+        width: 92%;
+    }
+    .absence-calculator-container{
+        width: 100%;
+        height: fit-content;
+        padding-bottom: 10vh;
+    }
+    
+}

@@ -1,0 +1,41 @@
+.years-and-periods-container{
+    width: 90%;
+    height: 100%;
+    margin-bottom: 5vh;
+    display: flex;
+    flex-direction: column;
+}
+.years-and-periods-container p{
+    font-size: 0.8em;
+}
+.period-container{
+    flex: 1;
+    display: grid;
+    height: auto;
+    grid-template-columns: repeat(7, 1fr);
+    column-gap: 1%;
+}
+.year-container{
+    flex: 2;
+    height: auto;
+    column-gap: 1%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+@media only screen and (max-width: 800px){
+    .years-and-periods-container{
+        margin-bottom: 5vh;
+        flex: 1;
+        min-height: min-content;
+        height: 100%;
+    }
+    .period-container{
+    
+        grid-template-columns: repeat(3, 1fr);
+        
+    }
+    .year-container{
+        grid-template-columns: repeat(3, 1fr);
+
+    }
+}

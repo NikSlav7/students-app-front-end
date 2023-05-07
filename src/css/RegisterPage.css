@@ -1,0 +1,308 @@
+:root{
+    --main-font: "Open Sans";
+    --main-color: rgb(0, 221, 255);
+}
+.register-page-container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+.logo-container{
+    flex: 0.8;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.register-page-logo-container{
+    width: 30vw;
+    aspect-ratio: 1/1;
+    border-right: solid;
+    border-color: black;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.register-page-logo{
+    width: 90%;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+}
+.details-container{
+    width: 100%;
+    height: 100%;
+    flex: 1;
+    margin-left: 2%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.register-details{
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+.register-title-container{
+    flex: 1;
+    display: flex;
+    justify-content: start;
+    align-items: end;
+    
+}
+.register-title{
+    font-size: 2em;
+    font-weight: 700;
+}
+.register-btn-container{
+    flex: 1;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: start;
+}
+.register-button{
+    width: 75%;
+    aspect-ratio: 7/1;
+    border-radius: 0.2vw;
+    padding: 0.3vh;
+    border: none;
+    background-image: linear-gradient(to right, rgb(0, 255, 238), rgb(0, 140, 255));
+    font-weight: 700;
+    transition: all 0.1s;
+}
+.register-button:hover{
+    filter: brightness(103%);
+    transform: scale(1.01);
+    cursor: pointer;
+}
+.creds-container{
+    flex: 3;
+}
+.register-container{
+    flex: 1;
+    margin-top: 2vh;
+    display: flex;
+    flex-direction: column;
+}
+.register-container-text-container{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.register-container-text{
+    flex: 1;
+    width: 75%;
+    height: 50%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85em;
+    font-weight: 500;
+    text-align: center;
+}
+.register-container-button-container{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.register-container-button{
+    flex: 1;
+    width: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+    margin: 0;
+    font-size: 1em;
+    text-decoration: underline;
+    font-weight: 700;
+    text-align: center;
+    transition: all 0.15s;
+}
+.register-container-button:hover{
+    color: gray;
+    cursor: pointer;
+}
+.register-details-container{
+    height: 50%;
+    aspect-ratio: 2.7/4;
+    display: flex;
+    margin-left: 5%;
+    flex-direction: column;
+}
+.register-details-creds-container{
+    background-color: rgba(255, 255, 255, 0.8);
+    flex: 6;
+    border: none;
+    border-radius: 2vh 2vh 0 0 ;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2vh;
+}
+.register-details-button-container{
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 0 0 1vh 1vh;
+    flex: 1;
+}
+.register-details-button{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    font-family: "Open Sans";
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.8);
+    transition:  all 0.2s;
+    font-size: 135%;
+    letter-spacing: 0.25em;
+}
+.register-details-button:hover{
+    color: black;
+    letter-spacing: 0.5em;
+}
+.register-details-pic-container{
+    position: relative;
+    flex: 2.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.register-details-pic{
+    height: 100%;
+    max-height: 13vh;
+    position: relative;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+}
+.register-details-details-container{
+    flex: 3;
+}
+.register-details-details{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+.error{
+    background-color: rgba(255, 77, 77, 0.6);
+}
+.register-details-details input{
+    width: 75%;
+    aspect-ratio: 7/1;
+    box-sizing: border-box;
+    border-width: 0.05vh;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    padding: 0.3vh;
+    outline: none;
+    border-radius: 0.2vw;
+    border: double;
+    border-color: rgb(63, 63, 63);
+    
+}
+.register-details-details label{
+    margin-top: 1%;
+    float: left;
+    font-weight: 600;
+    width: 75%;
+    text-align: start;
+}
+.register-details-details input:focus{
+    border-bottom-color: rgba(0, 166, 192, 0.75);
+}
+.register-details-register-container{
+    flex: 1.5;
+    font-family: var(--main-font);
+    display: flex;
+    align-items: center;
+}
+.register-details-question{
+    flex: 2;
+    font-family: var(--main-font);
+    font-size: 92%;
+    font-weight: 300;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+.register-details-register{
+    flex: 1;
+    background-color: rgba(1, 187, 215, 0.75);
+    border: none;
+    font-family: var(--main-font);
+    margin-right: 2.5%;
+    border-radius: 1vh;
+    font-size: 90%;
+    height: 50%;
+    transition: all 0.2s;
+}
+.register-details-register:hover{
+    letter-spacing: 0.15em;
+}
+@media screen and (max-width: 800px){
+    .register-page-container{
+        margin-top: 12vh;
+
+    }
+    .logo-container{
+        flex: 0.8;
+    }
+    .details-container{
+        display: flex;
+        flex-direction: column;
+        align-items: start !important;
+        justify-content: start;
+        margin-left: 0 !important;
+    }
+    .register-details-container{
+        width: 96vw;
+        margin-left: 2vw;
+        margin-right: 2vw;
+    }
+    .register-details-details input{
+        width: 80%;
+        margin-left: 10%;
+        border-radius: 2vw;
+    }
+    .register-details-details label{
+        margin-left: 10%;
+    }
+    .register-button{
+        width: 80%;
+        margin-left: 10%;
+        border-radius: 2vw;
+
+    }
+    .login-container{
+        width: 96vw;
+    }
+    .login-container-button-container{
+        display: flex;
+        justify-content: center !important;
+        align-items: center;
+    }
+    .login-container-text-container{
+        display: flex;
+        justify-content: center !important;
+        align-items: center;
+    }
+    .register-title{
+        margin-left: 10%;
+    }
+
+}
