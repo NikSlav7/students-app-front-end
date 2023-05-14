@@ -1,5 +1,6 @@
 import { createRef, useRef, useState, useEffect } from 'react';
 import '../css/RequirePasswordReset.css'
+import ErrorMessage from './ErrorMessage';
 function RequirePasswordReset(){
 
     const credField = useRef(null)
@@ -12,15 +13,45 @@ function RequirePasswordReset(){
     const[showLogo, setShowLogo] = useState(window.innerWidth >= 800)
 
 
+    
+    const [errorMessageData, setErrorMessageData] = useState({
+        "message": "error",
+        "show": false
+    });
+
+   
     useEffect(()=>{
         addInputOnClickListeners();
     },[])
+    function clearTimeouts(){
+        var id = window.setTimeout(function() {}, 0);
+        while (id >= 0){
+            window.clearTimeout(id--);
+        }
+    }
 
     window.addEventListener('resize', () =>{
             if (window.innerWidth < 800 && showLogo) setShowLogo(false)
             if (window.innerWidth >= 800 && !showLogo) setShowLogo(true)
         })
 
+     function showError(message){
+        clearTimeouts();
+        let copy = structuredClone(errorMessageData);
+        copy['show'] = true;
+        copy['message'] = message;
+        setErrorMessageData(errorMessageData => copy);
+
+        setTimeout(() =>{
+            hideError()
+        }, 3000)
+    }
+
+    function hideError(){
+        let copy = structuredClone(errorMessageData);
+        copy['show'] = false;
+        setErrorMessageData(errorMessageData => copy);
+    }    
 
     function addInputOnClickListeners(){
         let inputs = formRef.current.querySelectorAll('input');
@@ -41,7 +72,13 @@ function RequirePasswordReset(){
             },
             body: JSON.stringify({'cred': cred})
         }).then((response) =>{
+            if (!response.ok){
+                showError("Wrong Email or Username")
+                return;
+            }
             setIsSent(true);
+        }).catch((error) =>{
+            showError("Unknown error. Reload page and try again")
         })
     }
     function getCookie(name){
@@ -82,6 +119,7 @@ function RequirePasswordReset(){
                 </div>}
             </div>
             }
+            {errorMessageData['show'] && <ErrorMessage data={errorMessageData}/>}
         </div>
     )
 }

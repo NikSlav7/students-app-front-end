@@ -11,6 +11,11 @@ function LoginPage(){
     const[flag, setFlag] = useState(false)
 
     const[showLogo, setShowLogo] = useState(window.innerWidth > 800)
+
+    const [errorMessageData, setErrorMessageData] = useState({
+        "message": "error",
+        "show": false
+    });
     
 
     useEffect(()=>{
@@ -39,8 +44,9 @@ function LoginPage(){
             }
         });
         let sender = new BackendApiSender();
-        sender.sendRequest(username, password, authServerDomain.current+"/api/auth/login").catch((error) =>{
-            alert("Wrong credentials")
+        sender.sendRequest(username, password, authServerDomain.current+"/api/auth/login").then().catch((error) =>{
+            console.log("error");
+            showError("Wrong Credentials")
         })
 
     }
@@ -58,6 +64,33 @@ function LoginPage(){
         })
         return !emptyOccured;
     }
+
+    function clearTimeouts(){
+        var id = window.setTimeout(function() {}, 0);
+        while (id >= 0){
+            window.clearTimeout(id--);
+        }
+    }
+
+    function showError(message){
+        clearTimeouts();
+        let copy = structuredClone(errorMessageData);
+        copy['show'] = true;
+        copy['message'] = message;
+        setErrorMessageData(errorMessageData => copy);
+
+        setTimeout(() =>{
+            hideError()
+        }, 3000)
+    }
+
+    function hideError(){
+        let copy = structuredClone(errorMessageData);
+        copy['show'] = false;
+        setErrorMessageData(errorMessageData => copy);
+    }
+
+    
 
     function getCookie(name) {
         const value = `; ${document.cookie}`;
@@ -106,7 +139,7 @@ function LoginPage(){
                     </div>
                 </div>
             </div>
-            <ErrorMessage />
+            {errorMessageData['show'] && <ErrorMessage data={errorMessageData}/>}
         </div>
     )
 }

@@ -3,7 +3,6 @@ import "../css/FileDropdown.css"
 function FileDropdown(props){
 
     const[onDrag, setOnDrag] = useState(false)
-
     const inputRef = useRef(null);
 
     const resourceServerDomain = useRef("http://localhost:21212")
@@ -13,20 +12,7 @@ function FileDropdown(props){
         if (parts.length === 2) return parts.pop().split(';').shift();
       }
 
-    function sendMarks(file, yearName){
-        let data = new FormData();
-        data.append("marks", file);
-        data.append("yearName", yearName)
-        fetch(resourceServerDomain.current + "/api/pdf/marks-sheet", {
-            method: "post",
-            body: data,
-            headers:{
-                "Authorization": 'Bearer ' + getCookie("STUDENTS_ACCESS_TOKEN")
-            }
-        }).then((response) =>{
-            window.location.reload();
-        })
-    }
+   
 
     function checkIfCanSend(){
         if (props.yearNames.length === 0 && props.yearInputRef.current.value === '') return false;
@@ -44,10 +30,9 @@ function FileDropdown(props){
     }
 
     function dropHandler(e){
-
-
         e.preventDefault();
         setOnDrag(false);
+        
         if (!checkIfCanSend()){
              alert("Type the name of the studying year")
              console.log('cannot')
@@ -59,21 +44,20 @@ function FileDropdown(props){
             return;
         }
         
-        
+        props.chooseModeOn(file);
         let yearName = props.yearNames.length === 0 ? props.yearInputRef.current.value : props.getChosenYearVal();
-        sendMarks(file, yearName);
-        props.closeDialog(false);
+        
     }
     function chooseHandler(e){
+        props.chooseModeOn();
         e.preventDefault();
         if (!checkIfCanSend()){
             alert("Type the name of the studying year")
             console.log('cannot')
             return;
        }
-       let yearName = props.yearNames.length === 0 ? props.yearInputRef.current.value : props.getChosenYearVal();
-       sendMarks(inputRef.current.files[0], yearName)
-        props.closeDialog(false);
+       props.chooseModeOn(inputRef.current.files[0]);
+
     }
     function clickHandler(e){
         inputRef.current.click();

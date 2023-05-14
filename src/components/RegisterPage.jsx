@@ -1,12 +1,44 @@
 import "../css/RegisterPage.css"
 import { useEffect, useRef, useState } from "react";
 import {BackendApiSender} from "../BackendApiSender.js"
+import ErrorMessage from "./ErrorMessage";
 function RegisterPage(){
 
     const authServerDomain = useRef("http://localhost:31212")
     const resourceServerDomain = useRef("http://localhost:21212")
     const[showLogo, setShowLogo] = useState(window.innerWidth >= 800)
     const formRef = useRef(null);
+
+    const [errorMessageData, setErrorMessageData] = useState({
+        "message": "error",
+        "show": false
+    });
+    function clearTimeouts(){
+        var id = window.setTimeout(function() {}, 0);
+        while (id >= 0){
+            window.clearTimeout(id--);
+        }
+    }
+
+    function showError(message){
+        clearTimeouts();
+        let copy = structuredClone(errorMessageData);
+        copy['show'] = true;
+        copy['message'] = message;
+        setErrorMessageData(errorMessageData => copy);
+
+        setTimeout(() =>{
+            hideError()
+        }, 3000)
+    }
+
+    function hideError(){
+        let copy = structuredClone(errorMessageData);
+        copy['show'] = false;
+        setErrorMessageData(errorMessageData => copy);
+    }
+    
+
     function onRegisterButtonClick(){
         if (!checkAllFieldsFilled()) return;
         let form = document.getElementById("register-details-form");
@@ -21,7 +53,7 @@ function RegisterPage(){
            }
         });
         if (repPas.trim() !== regBody['password'].trim()) {
-            alert("the passwords doesn't match")
+            showError("The passwords don't match")
             return;
         }
         let sender = new BackendApiSender();
@@ -114,6 +146,7 @@ function RegisterPage(){
                     </div>
                 </div>
             </div>
+            {errorMessageData['show'] && <ErrorMessage data={errorMessageData}/>}
         </div>
     )
     

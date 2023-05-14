@@ -14,7 +14,7 @@ function GraphElement(props){
         props.changeLine(props.ind, isShowing);
     }
     useEffect(()=>{
-        console.log('hej')
+        console.log(props.title + " " + props.color)
         textRef.current.style.setProperty("--circle-color", textRef.current.getAttribute("circle-color"))
     }, [])
     return(

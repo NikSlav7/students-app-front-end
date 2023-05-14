@@ -1,6 +1,7 @@
 import { useLocation, useParams } from "react-router";
 import { useState, useEffect, useRef} from "react";
 import '../css/PasswordReset.css'
+import ErrorMessage from "./ErrorMessage";
 
 function PasswordReset(){
 
@@ -18,10 +19,34 @@ function PasswordReset(){
 
     const[showLogo, setShowLogo] = useState(window.innerWidth >= 800)
 
+    const [errorMessageData, setErrorMessageData] = useState({
+        "message": "error",
+        "show": false
+    });
+
     window.addEventListener('resize', () =>{
         if (window.innerWidth < 800 && showLogo) setShowLogo(false)
         if (window.innerWidth >= 800 && !showLogo) setShowLogo(true)
     })
+
+   
+    function showError(message){
+        clearTimeouts();
+        let copy = structuredClone(errorMessageData);
+        copy['show'] = true;
+        copy['message'] = message;
+        setErrorMessageData(errorMessageData => copy);
+
+        setTimeout(() =>{
+            hideError()
+        }, 3000)
+    }
+
+    function hideError(){
+        let copy = structuredClone(errorMessageData);
+        copy['show'] = false;
+        setErrorMessageData(errorMessageData => copy);
+    }    
 
     function validateToken(){
         let url = new URL(resourceServerDomain.current + "/api/password-reset/check-token");
@@ -30,34 +55,38 @@ function PasswordReset(){
         fetch(url,{
             method: 'get'
         }).then((response) =>{
+            if (response.ok)
             response.json().then((result) =>{
                 setIsTokenValid(true)
             });
+            else {
+                setIsTokenValid(valse)
+            }
         }).catch((error) =>{
             setIsTokenValid(false)
         })
     }
 
     function validatePasswords(){
+        console.log(passwordField.current.value + ' ' + passwordRepField.current.value)
         if (passwordField.current.value === ''){
-            alert("Please, enter the password")
+            showError("Please, enter the password")
             return false;
         } 
         if (passwordField.current.value !== passwordRepField.current.value) {
-            console.log
-            alert("Passwords don't match")
+            console.log();
+            showError("Passwords don't match")
             return false;
         }
         return true;
     }
     function onConfirmButtonClick(){
-        if (!validatePasswords()) return;
+        if (!checkAllFieldsFilled() || !validatePasswords()) return;
+        resetPassword();
         console.log(passwordField.current.value)
     }
 
-    function onConfirmButtonClick(){
-        resetPassword();
-    }
+    
 
     useEffect(()=>{
         validateToken();
@@ -66,7 +95,12 @@ function PasswordReset(){
         if (isTokenValid) addInputOnClickListeners();
     }, [isTokenValid])
 
-   
+    function clearTimeouts(){
+        var id = window.setTimeout(function() {}, 0);
+        while (id >= 0){
+            window.clearTimeout(id--);
+        }
+    }
 
     function addInputOnClickListeners(){
         let inputs = formRef.current.querySelectorAll('input');
@@ -78,7 +112,6 @@ function PasswordReset(){
     }
 
     function resetPassword(){
-        if (!checkAllFieldsFilled()) return;
         fetch(resourceServerDomain.current + "/api/password-reset/reset", {
             method: 'post',
             headers:{
@@ -87,9 +120,11 @@ function PasswordReset(){
             },
             body:JSON.stringify({'password': passwordField.current.value, "passwordRepeat": passwordRepField.current.value, "token": token})
         }).then((response) =>{
-            window.location.pathname = '/login';
+            console.log(response)
+            if (response.ok) window.location.pathname = '/login';
+            else showError("Somer error occured, please try again")
         }).catch((error) =>{
-            alert("Somer error occured, please try again")
+            showError("Somer error occured, please try again")
         })
 
     }
@@ -136,6 +171,7 @@ function PasswordReset(){
                     </div>}
                 </div>
             }
+            {errorMessageData['show'] && <ErrorMessage data={errorMessageData}/>}
         </div>
     )
 }

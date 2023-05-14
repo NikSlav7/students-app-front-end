@@ -7,8 +7,30 @@
     background-color:rgba(252, 75, 62, 0.7);
     border-top-left-radius: 0.2vw;
     border: solid;
+    animation-name: slide-in;
+    animation-fill-mode: forwards;
+    animation-duration: 200ms;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-color:rgba(253, 26, 9, 0.85) ;
 }
 .error-message-container p{
     font-weight: 600;
+    aspect-ratio: 6/1;
+}
+
+@media only screen and (max-width: 800px){
+    .error-message-container{
+        width: 100%;
+    }
+}
+
+@keyframes slide-in{
+    0%{
+        opacity: 25%;
+    }
+    100%{
+        opacity: 100%;
+    }
 }

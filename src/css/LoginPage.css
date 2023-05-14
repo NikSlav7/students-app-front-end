@@ -154,6 +154,7 @@
     aspect-ratio: 2.7/4;
     display: flex;
     margin-left: 5%;
+    min-width: 380px;
     flex-direction: column;
 }
 .login-details-creds-container{

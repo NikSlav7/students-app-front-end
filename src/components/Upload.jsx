@@ -19,7 +19,7 @@ function Upload(props){
     }
 
     function onHoverEnd(){
-        buttonRef.current.style.opacity = '0';
+        if (screen.width >= 800) buttonRef.current.style.opacity = '0';
     }
 
     return (

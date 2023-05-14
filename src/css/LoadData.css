@@ -75,6 +75,7 @@
 }
 .load-data-delete-button:hover{
     transform: scale(1.2);
+    cursor: pointer;
 }
 @media (max-width: 800px) {
    
@@ -111,4 +112,9 @@
         grid-auto-rows: 30%;
     }
     
+}
+@media only screen and (max-width: 1400px){
+    .loads-data-container{
+        grid-auto-rows: 17%;
+    }
 }

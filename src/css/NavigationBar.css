@@ -9,6 +9,8 @@
 }
 .navbar-name{
     font-weight: 600 !important;
+    min-height: fit-content;
+    white-space: nowrap;
 }
 .navbar-logo-container{
     height: 100%;
@@ -20,6 +22,9 @@
     object-fit: cover;
     float: left;
     margin-left: 10%;
+}
+.navbar-logo-container img:hover{
+    cursor: pointer;
 }
 .navbar-links-container{
     width: 50%;
@@ -35,6 +40,7 @@
     height: 100%;
     display: flex;
 }
+
 .navbar-links-container p{
     height: 100%;
     flex: 1;
@@ -49,6 +55,8 @@
     text-decoration: none;
     transition: all 0.1s;
     color: black;
+    white-space: nowrap;
+    margin-right: 2vw;
 }
 .navbar-links-container p:hover{
     transform: scale(1.02);
@@ -59,5 +67,19 @@
 @media only screen and (max-width: 800px) {
     .navbar-links-container p{
         font-size: 0.5em;
+    }
+    .navbar-links{
+        width: 60%;
+    }
+}
+@media only screen and (max-width: 1400px) {
+    .navbar-container{
+        height: 7vh;
+    }
+    .navbar-links-container p{
+        line-height: 7vh;
+    }
+    .navbar-links-container{
+        width: 70%;
     }
 }

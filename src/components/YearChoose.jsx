@@ -1,5 +1,5 @@
 import '../css/PeriodChoose.css'
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 function YearChoose(props){
 
 
@@ -10,13 +10,16 @@ function YearChoose(props){
         props.setPeriod(name);
     }
 
+   useEffect(() => {
+    if (screen.width < 800) onMouseOverHandler();
+   }, [])
+
    function onMouseOverHandler(){
-        console.log('over')
         deleteRef.current.style.flex = 1;
         deleteRef.current.style.opacity = '100%';
    }
    function onMouseOutHandler(){
-    console.log('leave')
+    if (screen.width < 800) return;
     deleteRef.current.style.opacity = '0';
     deleteRef.current.style.flex = 0;
 }

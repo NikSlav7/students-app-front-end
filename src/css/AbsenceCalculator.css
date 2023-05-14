@@ -43,6 +43,10 @@
     border-radius: 0.3vh;
     font-weight: 600;
 }
+.absence-calculator-results-button:hover{
+    filter: brightness(102%);
+    cursor: pointer;
+}
 .absence-calculator-result-container{
     flex: 2;
     display: flex;
@@ -145,5 +149,10 @@ p{
     }
     .absence-calculator-absence-count-input{
         width: 85%;
+    }
+}
+@media only screen and (max-width: 1400px){
+    .absence-calculator-absence-count-input{
+        height: 4.5vh;
     }
 }

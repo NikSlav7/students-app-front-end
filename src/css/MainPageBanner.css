@@ -15,7 +15,9 @@
 }
 .banner-button-container button{
     margin-left: 0;
-    width: 8vw;
+    width: 12vw;
+    min-width: 100px;
+    aspect-ratio: 7/1;
 }
 .banner-text-container{
     flex: 1;
@@ -33,5 +35,15 @@
     }
     .banner-text{
         font-size: 1.5em;
+    }
+}
+@media only screen and (max-width: 1400px) {
+    .banner-button-container button{
+        width: 20vw;
+        aspect-ratio: 7/1;
+        min-width: 0;
+    }
+    .banner-text{
+        font-size: 2em;
     }
 }

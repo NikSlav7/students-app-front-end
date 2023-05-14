@@ -39,6 +39,7 @@ function MainPage(){
     const [absenceDataCur, setAbsenceDataCur] = useState(null);
 
 
+
     function getAspectRatio(){
         return screen.width > 1200 ? 3 : 0.8;
     }
@@ -124,13 +125,9 @@ function MainPage(){
             getYearInfo(yearName).then((result) => {
                 loadedData.current.set(yearName, result);
                 console.log(loadedData.current)
+                setCurrentPeriod(getFirstKey(loadedData.current.get((yearName))))
                 setCurrentYear(yearName);
-                if (Object.keys(loadedData.current.get(yearName)).length !== 0) {
-                    const periodName = Object.keys(loadedData.current.get(yearName))[0];
-                     setCurrentPeriod(periodName);
-                     
-                }
-                else setCurrentPeriod(null)
+                console.log(currentYear + " " + currentPeriod + " " + yearName);
             })
         }
         
@@ -143,6 +140,7 @@ function MainPage(){
       }
 
     function getFirstKey(set) {
+        if (set === null || set === undefined) return null;
         let keys = Object.keys(set);
         return keys.length === 0 ? null : keys[0];
       }
@@ -298,7 +296,8 @@ function MainPage(){
         return color;
       }
      function createColor(ind){
-        let colors = ["Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Pink", "Turquoise", "Lime", "Teal", "Magenta", "Navy", "Maroon", "Olive", "Silver", "Gold", "Bronze", "Copper", "Indigo", "Violet", "Crimson", "Amber", "Fuchsia", "Chartreuse", "Aquamarine", "Sapphire", "Emerald", "Ruby", "Saffron", "Mauve"];
+        let colors = [  "red",  "blue",  "green",  "black",  "orange",  "yellow",  "purple",  "pink",  "brown",  "gray",  "silver",  "gold",  "navy",  "teal",  "maroon",  "olive",  "coral",  "turquoise",  "indigo",  "aquamarine",  "beige",  "chocolate",  "crimson",  "darkblue",  "fuchsia",  "khaki",  "lavender",  "lime",  "magenta",  "mint",  "navajowhite",  "orchid",  "peru",  "plum",  "rosybrown",  "seagreen",  "sienna",  "steelblue",  "tomato",  "violet"]
+
         return colors[ind % colors.length]
      } 
   
@@ -376,25 +375,24 @@ function MainPage(){
     }
 
     async function deleteYear(yearName){
-        deleteYearRequest(yearName).then((response) =>{
+        deleteYearRequest(yearName).then(async (response) =>{
             loadedData.current.delete(yearName);
             let yearsCopy = [...yearNames]
+            yearsCopy.splice(yearsCopy.indexOf(yearName), 1);
             if (yearName === currentYear){
-                yearsCopy.splice(yearsCopy.indexOf(yearName), 1);
-                if (yearsCopy.length <= 0) {
-                    setCurrentYear(null);
+                if (yearsCopy.length === 0) {
                     setCurrentPeriod(null);
+                    setCurrentYear(null)
+                    setYearNames(yearsCopy);
                 }
+
                 else {
-                    chooseYear(yearNames[0])
+                    await chooseYear(yearsCopy[0])
                 }
             }
-            else {
-                yearsCopy.splice(yearsCopy.indexOf(yearName), 1);
-            }
-            
             setYearNames(yearsCopy);
         });
+
     }
 
     function deleteYearRequest(yearName){
@@ -499,7 +497,7 @@ function MainPage(){
                             <div className="edit-years-button-container">
                                         <button onClick={()=>onEditYearsButtonClick()} className="edit-years-button">{yearEditModeOn ? "Save" : "Edit Years"}</button>
                             </div>
-                                {currentYear !== null &&  <YearsAndPeriods  deletePeriod={deletePeriod} deleteYear={deleteYear} yearEditMode={yearEditModeOn} currentYear={currentYear} currentPeriod={currentPeriod} setCurrentYear={changeCurrentYear} setCurrentPeriod={changeCurrentPeriod} yearNames={yearNames}
+                                {loadedData.current.get(currentYear) !== undefined &&  currentYear !== null  &&  <YearsAndPeriods  deletePeriod={deletePeriod} deleteYear={deleteYear} yearEditMode={yearEditModeOn} currentYear={currentYear} currentPeriod={currentPeriod} setCurrentYear={changeCurrentYear} setCurrentPeriod={changeCurrentPeriod} yearNames={yearNames}
                                 periodNames={Object.keys(loadedData.current.get(currentYear))}/>}
                             </div>
                             <div className="graph-container">
