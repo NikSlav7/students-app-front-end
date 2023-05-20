@@ -4,8 +4,8 @@ import {BackendApiSender} from "../BackendApiSender.js"
 import ErrorMessage from "./ErrorMessage";
 function RegisterPage(){
 
-    const authServerDomain = useRef("http://localhost:31212")
-    const resourceServerDomain = useRef("http://localhost:21212")
+    const authServerDomain = useRef("http://212.224.88.70:31212")
+    const resourceServerDomain = useRef("http://212.224.88.70:21212")
     const[showLogo, setShowLogo] = useState(window.innerWidth >= 800)
     const formRef = useRef(null);
 

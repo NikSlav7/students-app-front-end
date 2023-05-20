@@ -8,7 +8,7 @@ import { BackendApiSender } from './BackendApiSender';
 import { useRef } from 'react';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const authServerDomain = "http://localhost:31212";
+const authServerDomain = "http://212.224.88.70:31212";
 root.render(
   <BrowserRouter >
       <App />

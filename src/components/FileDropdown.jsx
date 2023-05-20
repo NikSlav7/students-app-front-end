@@ -5,7 +5,7 @@ function FileDropdown(props){
     const[onDrag, setOnDrag] = useState(false)
     const inputRef = useRef(null);
 
-    const resourceServerDomain = useRef("http://localhost:21212")
+    const resourceServerDomain = useRef("http://212.224.88.70:21212")
     function getCookie(name) {
         const value = `; ${document.cookie}`;
         const parts = value.split(`; ${name}=`);

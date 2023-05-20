@@ -6,7 +6,7 @@ import { useRef, useState } from "react";
 function MarksheetDialog(props){
 
 
-    const resourceServerDomain = useRef("http://localhost:21212")
+    const resourceServerDomain = useRef("http://212.224.88.70:21212")
 
 
     const [customYear, setCustomYear] = useState(props.yearNames.length === 0);

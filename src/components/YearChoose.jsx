@@ -11,8 +11,8 @@ function YearChoose(props){
     }
 
    useEffect(() => {
-    if (screen.width < 800) onMouseOverHandler();
-   }, [])
+    if (screen.width < 800 && deleteRef.current !== null) onMouseOverHandler();
+   })
 
    function onMouseOverHandler(){
         deleteRef.current.style.flex = 1;

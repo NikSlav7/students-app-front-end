@@ -4,7 +4,7 @@ import {BackendApiSender} from "../BackendApiSender.js"
 import ErrorMessage from "./ErrorMessage";
 function LoginPage(){
 
-    const authServerDomain = useRef("http://localhost:31212")
+    const authServerDomain = useRef("http://212.224.88.70:31212")
 
     const formRef = useRef(null);
 

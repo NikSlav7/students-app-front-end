@@ -14,8 +14,8 @@ ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Tooltip)
 function MainPage(){
 
     const[showMarksheetDialog, setShowMarksheetDialog] = useState(false);
-    const authServerDomain = useRef("http://localhost:31212")
-    const resourceServerDomain = useRef("http://localhost:21212")
+    const authServerDomain = useRef("http://212.224.88.70:31212")
+    const resourceServerDomain = useRef("http://212.224.88.70:21212")
 
     const [uploadOffset, setUploadOffset] = useState(0);
     const[uploadedList, setUploadedList] = useState([]);
