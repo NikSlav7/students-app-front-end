@@ -4,7 +4,7 @@ import {BackendApiSender} from "../BackendApiSender.js"
 import ErrorMessage from "./ErrorMessage";
 function LoginPage(){
 
-    const authServerDomain = useRef("http://212.224.88.70:31212")
+    const authServerDomain = useRef(process.env.REACT_APP_ENV==='dev' ?  ("http://" + process.env.REACT_APP_DEV_DOMAIN + ":31212") : ("http://" + process.env.REACT_APP_PROD_DOMAIN + ":31212"))
 
     const formRef = useRef(null);
 

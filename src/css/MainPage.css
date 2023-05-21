@@ -205,7 +205,7 @@ body{
         width: 92%;
     }
     .absence-calculator-container{
-        width: 100%;
+        width: 100vw !important;
         height: fit-content;
         padding-bottom: 10vh;
     }
@@ -225,4 +225,8 @@ body{
     .absence-calculator-container{
         width: 50vw;
     }
+}
+    
+button {
+    color: black;
 }

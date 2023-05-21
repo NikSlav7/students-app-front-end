@@ -33,6 +33,7 @@
     .banner-button-container button{
         width: 45vw;
     }
+    
     .banner-text{
         font-size: 1.5em;
     }
@@ -47,3 +48,14 @@
         font-size: 2em;
     }
 }
+
+@media only screen and (max-width: 800px) {
+    .banner-button-container button{
+        width: 40vw;
+        min-width: fit-content;
+    }
+    .banner-text{
+        font-size: 1.5em;
+    }
+}
+

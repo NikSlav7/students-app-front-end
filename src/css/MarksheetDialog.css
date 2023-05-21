@@ -191,3 +191,16 @@
         height: 85vh;
     }
 }
+@media only screen and (max-width: 800px) {
+    .marksheet-dialog-container{
+        height: 65vh;
+        max-width: 90vw;
+    }
+    .close-dialog-button{
+        margin-right: 10vw;
+    }
+    .marksheet-dialog-file-container{
+        flex: 3;
+        
+    }
+}

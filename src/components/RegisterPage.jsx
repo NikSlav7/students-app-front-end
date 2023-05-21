@@ -4,8 +4,8 @@ import {BackendApiSender} from "../BackendApiSender.js"
 import ErrorMessage from "./ErrorMessage";
 function RegisterPage(){
 
-    const authServerDomain = useRef("http://212.224.88.70:31212")
-    const resourceServerDomain = useRef("http://212.224.88.70:21212")
+    const authServerDomain = useRef(process.env.REACT_APP_ENV==='dev' ?  ("http://" + process.env.REACT_APP_DEV_DOMAIN + ":31212") : ("http://" + process.env.REACT_APP_PROD_DOMAIN + ":31212"))
+    const resourceServerDomain = useRef(process.env.REACT_APP_ENV==='dev' ?  ("http://" + process.env.REACT_APP_DEV_DOMAIN + ":21212") : ("http://" + process.env.REACT_APP_PROD_DOMAIN + ":21212"))
     const[showLogo, setShowLogo] = useState(window.innerWidth >= 800)
     const formRef = useRef(null);
 
@@ -135,12 +135,12 @@ function RegisterPage(){
                         <div className="register-btn-container">
                             <button className="register-button" onClick={() => onRegisterButtonClick()}>Register</button>
                         </div>
-                        <div className="register-container">
-                            <div className="register-container-text-container">
-                                <p className="register-container-text">Already have an account?</p>
+                        <div className="login-container">
+                            <div className="login-container-text-container">
+                                <p className="login-container-text">Already have an account?</p>
                             </div>
-                            <div className="register-container-button-container">
-                                <p className="register-container-button" onClick={() => onLoginButtonClick()}>Login</p>
+                            <div className="login-container-button-container">
+                                <p className="login-container-button" onClick={() => onLoginButtonClick()}>Login</p>
                             </div>
                         </div>
                     </div>

@@ -85,19 +85,19 @@
 .creds-container{
     flex: 3;
 }
-.register-container{
+.login-container{
     flex: 1;
     margin-top: 2vh;
     display: flex;
     flex-direction: column;
 }
-.register-container-text-container{
+.login-container-text-container{
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.register-container-text{
+.login-container-text{
     flex: 1;
     width: 75%;
     height: 50%;
@@ -109,13 +109,13 @@
     font-weight: 500;
     text-align: center;
 }
-.register-container-button-container{
+.login-container-button-container{
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.register-container-button{
+.login-container-button{
     flex: 1;
     width: 75%;
     display: flex;
@@ -129,7 +129,7 @@
     text-align: center;
     transition: all 0.15s;
 }
-.register-container-button:hover{
+.login-container-button:hover{
     color: gray;
     cursor: pointer;
 }
@@ -224,7 +224,7 @@
 .register-details-details input:focus{
     border-bottom-color: rgba(0, 166, 192, 0.75);
 }
-.register-details-register-container{
+.register-details-login-container{
     flex: 1.5;
     font-family: var(--main-font);
     display: flex;
@@ -258,7 +258,6 @@
 @media screen and (max-width: 800px){
     .register-page-container{
         margin-top: 12vh;
-
     }
     .logo-container{
         flex: 0.8;
@@ -274,8 +273,6 @@
         width: 96vw;
         margin-left: 2vw;
         margin-right: 2vw;
-        min-width: 400px;
-
     }
     .register-details-details input{
         width: 80%;
@@ -292,7 +289,7 @@
 
     }
     .login-container{
-        width: 96vw;
+        width: 100;
     }
     .login-container-button-container{
         display: flex;

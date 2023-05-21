@@ -68,6 +68,13 @@
     .period-choose-container-chosen{
         border-radius: 1.5vw;
     }
+    .period-choose-container-remove{
+        border-radius: 1.5vw;
+
+    }
+    .period-choose-delete-button{
+        z-index: 0;
+    }
         
     
 }

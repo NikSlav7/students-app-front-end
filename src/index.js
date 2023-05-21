@@ -8,7 +8,7 @@ import { BackendApiSender } from './BackendApiSender';
 import { useRef } from 'react';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const authServerDomain = "http://212.224.88.70:31212";
+const authServerDomain = process.env.REACT_APP_ENV==='dev' ?  ("http://" + process.env.REACT_APP_DEV_DOMAIN + ":31212") : ("http://" + process.env.REACT_APP_PROD_DOMAIN + ":31212")
 root.render(
   <BrowserRouter >
       <App />
@@ -17,6 +17,7 @@ root.render(
 const loginFreePages = ["/login", "/register", '/password/require-reset', '/password/reset']
 
 window.onload = async function(){
+  console.log(process.env.REACT_APP_ENV)
   let apiSender = new BackendApiSender(authServerDomain, "");
   if (!loginFreePages.some(domain => domain === window.location.pathname))
     apiSender.checkToken(authServerDomain + "/api/auth/checktoken", getCookie("STUDENTS_ACCESS_TOKEN")).then(() =>{

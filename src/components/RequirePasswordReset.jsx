@@ -5,8 +5,8 @@ function RequirePasswordReset(){
 
     const credField = useRef(null)
 
-    const authServerDomain = useRef("http://212.224.88.70:31212")
-    const resourceServerDomain = useRef("http://212.224.88.70:21212")
+    const authServerDomain = useRef(process.env.REACT_APP_ENV==='dev' ?  ("http://" + process.env.REACT_APP_DEV_DOMAIN + ":31212") : ("http://" + process.env.REACT_APP_PROD_DOMAIN + ":31212"))
+    const resourceServerDomain = useRef(process.env.REACT_APP_ENV==='dev' ?  ("http://" + process.env.REACT_APP_DEV_DOMAIN + ":21212") : ("http://" + process.env.REACT_APP_PROD_DOMAIN + ":21212"))
 
     const[isSent, setIsSent] = useState(false);
     const formRef = useRef(null);
