@@ -14,7 +14,9 @@
     width: 85%;
     display: flex;
 }
-
+.lesson-choose-element-value-input{
+    width: 100%;
+}
 .absence-calculator-results-container{
     flex: 2;
     display: flex;
@@ -31,6 +33,7 @@
     margin-left: 2vw;
     margin-top: 5%;
 }
+
 .absence-calculator-results-button{
     width: 30%;
     max-height: 40%;
