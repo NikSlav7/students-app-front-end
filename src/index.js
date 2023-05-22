@@ -3,16 +3,18 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, HashRouter } from 'react-router-dom';
 import { BackendApiSender } from './BackendApiSender';
 import { useRef } from 'react';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const authServerDomain = process.env.REACT_APP_ENV==='dev' ?  ("http://" + process.env.REACT_APP_DEV_DOMAIN + ":31212") : ("http://" + process.env.REACT_APP_PROD_DOMAIN + ":31212")
 root.render(
-  <BrowserRouter >
+  <React.StrictMode>
+  <HashRouter >
       <App />
-  </BrowserRouter>
+  </HashRouter>
+  </React.StrictMode>
 )
 const loginFreePages = ["/login", "/register", '/password/require-reset', '/password/reset']
 
