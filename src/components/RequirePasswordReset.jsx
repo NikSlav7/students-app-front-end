@@ -102,7 +102,7 @@ function RequirePasswordReset(){
         <div className='require-reset-page-container'>
             {isSent ?
             <div className='message-sent-container'>
-                <p className='message-sent-message'>You will receive a message with instructions within 1 minute. If you won't receive the message, you can try <a href={window.location.pathname}>again</a></p>
+                <p className='message-sent-message'>You will receive a message with instructions within 1 minute. If you won't receive the message, you can try <a href={window.location.hash}>again</a></p>
             </div> 
             :
             <div >

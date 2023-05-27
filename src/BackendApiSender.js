@@ -17,18 +17,17 @@ export class BackendApiSender{
                 response.json().then((result) => {
                     if (!response.ok) {
                         reject(response);
-                        window.location.pathname = "/login"
+                        window.location.replace("/#/login")
                     }
                     let date = new Date();
                     document.cookie = "STUDENTS_ACCESS_TOKEN=" + result['accessToken'] + "; expires=" + new Date(date.getTime() + 1000*60*60*24).toUTCString(); 
                     document.cookie = "STUDENTS_REFRESH_TOKEN=" + result['refreshToken'] + "; expires=" + new Date(date.getTime() + 1000*60*60*24*7).toUTCString();
-                    window.location.pathname = "/main";
+                    window.location.replace('/#/');
                 })
                 resolve(result)
             }).catch((error) =>{
                 reject(error);
-                window.location.pathname = "/login"
-
+                window.location.replace("/#/login")
             })
         })
     }
@@ -57,7 +56,7 @@ export class BackendApiSender{
                     console.log(result['accessToken'] + " " + result['refreshToken'])
                     document.cookie = "STUDENTS_ACCESS_TOKEN=" + result['accessToken'] + "; expires=" + new Date(date.getTime() + 1000*60*60*24).toUTCString(); 
                     document.cookie = "STUDENTS_REFRESH_TOKEN=" + result['refreshToken'] + "; expires=" + new Date(date.getTime() + 1000*60*60*24*7).toUTCString();
-                    window.location.pathname = "/main";
+                    window.location.replace("/#/login")
                     
                 })
                 resolve(response)
@@ -76,7 +75,8 @@ export class BackendApiSender{
             },
             body: JSON.stringify(body)
         }).then((response) =>{
-            if (response.ok) window.location.pathname = "/login"
+            if (response.ok)                 window.location.replace("/#/login")
+
         })
     }
 

@@ -121,7 +121,7 @@ function PasswordReset(){
             body:JSON.stringify({'password': passwordField.current.value, "passwordRepeat": passwordRepField.current.value, "token": token})
         }).then((response) =>{
             console.log(response)
-            if (response.ok) window.location.pathname = '/login';
+            if (response.ok) window.location.replace('/#/login');
             else showError("Somer error occured, please try again")
         }).catch((error) =>{
             showError("Somer error occured, please try again")

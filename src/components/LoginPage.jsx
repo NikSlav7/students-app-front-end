@@ -51,7 +51,7 @@ function LoginPage(){
 
     }
     function onRegisterButtonClick(){
-        window.location.pathname = "/register";
+        window.location.replace("/#/register");
     }
     function checkAllFieldsFilled(){
         let emptyOccured = false;

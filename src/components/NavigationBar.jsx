@@ -12,7 +12,7 @@ function NavigationBar(){
     return (
         <div className="navbar-container">
             <div className="navbar-logo-container">
-                <img src={require("../pics/logos/koolitrek/KOOLITREK BLACK ONLY PIC NO BCKG.png")} onClick={() => {window.location.pathname='/'}}></img>
+                <img src={require("../pics/logos/koolitrek/KOOLITREK BLACK ONLY PIC NO BCKG.png")} onClick={() => {window.location.replace('/#/')}}></img>
             </div>
             <div className="navbar-links-container">
                 <div className="navbar-links">

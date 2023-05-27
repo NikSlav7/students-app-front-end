@@ -86,7 +86,7 @@ function RegisterPage(){
       }
 
     function onLoginButtonClick(){
-        window.location.pathname = "/login";
+        window.location.replace("/#/login");
     }
 
     function checkAllFieldsFilled(){
