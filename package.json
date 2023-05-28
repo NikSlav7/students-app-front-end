@@ -1,7 +1,7 @@
 {
   "name": "students-app",
   "version": "1.1.0",
-  "homepage": "https://koolitrek.info",
+  "homepage": "https://koolitrek.info/#/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.6",
