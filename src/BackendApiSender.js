@@ -75,7 +75,7 @@ export class BackendApiSender{
             },
             body: JSON.stringify(body)
         }).then((response) =>{
-            if (response.ok)                 window.location.replace("/#/login")
+            if (response.ok)       window.location.replace("/#/login")
 
         })
     }
